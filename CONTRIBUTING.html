@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">stockplotr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.12.0</span>
       </span>
     </div>
 
@@ -35,6 +35,13 @@
     Functions
   </a>
 </li>
+<li>
+  <a href="stockplotr_cheatsheet.pdf">
+    <span class="fa fa-solid fa-key"></span>
+
+    Cheatsheet
+  </a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-file-contract fa-lg"></span>
@@ -44,10 +51,13 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="articles/manual.html">Manual</a>
+      <a href="articles/faqs.html">FAQs</a>
     </li>
     <li>
       <a href="articles/how-caps-alttext-are-made.html">How captions and alternative text are generated</a>
+    </li>
+    <li>
+      <a href="articles/convert_output_details.html">Standardizing Assessment Model Output</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -83,20 +93,54 @@
 <h2 id="contributing-ideas-code-documentation-etc">Contributing ideas: code, documentation, etc.<a class="anchor" aria-label="anchor" href="#contributing-ideas-code-documentation-etc"></a></h2>
 <div class="section level3">
 <h3 id="recommended-workflow-fork--submit-a-pull-request">Recommended workflow: fork &amp; submit a pull request<a class="anchor" aria-label="anchor" href="#recommended-workflow-fork--submit-a-pull-request"></a></h3>
-<p>The most efficient way to contribute an idea is to fork <code>stockplotr</code>, make your suggested changes on a local branch, and then submit a pull request. This will allow the developers to easily evaluate your suggested changes. Please see the <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project" class="external-link">GitHub Docs’ “Contributing to a project” page</a> for step-by-step guidance in using this workflow.</p>
-</div>
+<p>The most efficient way to contribute an idea is to fork <code>asar</code>, make your suggested changes on a local branch, and then submit a pull request to the main branch. This will allow the developers to easily evaluate your suggested changes. Please see the <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project" class="external-link">GitHub Docs’ “Contributing to a project” page</a> for step-by-step guidance in using this workflow.</p>
+<p>We also follow a few other practices that will help us expedite the review process. After completing the bug fix or feature, please complete the following:</p>
+<ol style="list-style-type: decimal"><li><p>Run <code>devtools::test()</code> to verify the package checks are passing (this includes tests).</p></li>
+<li><p>If including a feature, please add a test using the <a href="https://testthat.r-lib.org/reference/test_that.html" class="external-link"><code>{testthat}</code> package structure</a>. If you are unfamiliar with this approach, simply let us know :smile</p></li>
+<li><p>If including a feature that is a new function, please add documentation using the <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link"><code>{roxygen2}</code> package structure</a>.</p></li>
+</ol></div>
 <div class="section level3">
 <h3 id="recommended-practices">Recommended practices<a class="anchor" aria-label="anchor" href="#recommended-practices"></a></h3>
 <ul><li>Write clear, succinct commit messages (<a href="https://opensource.com/article/22/12/git-commit-message" class="external-link">see some tips here</a>)</li>
 <li>Limit a commit to a few, rather than many, changes. Smaller commits means more commit messages, which is often helpful for documentation.</li>
-<li>Ensure your base branch is correct.</li>
+<li>Ensure your base branch is correct. We merge all branches into main.</li>
 <li>Test that your contributed code will function as expected under different circumstances.</li>
 <li>Add comments to the code if it’s not immediately clear what the purpose of the code is, or how it works.</li>
-</ul></div>
+<li>Name branches and title pull requests according to the release indicators in the table below.</li>
+</ul><div class="section level4">
+<h4 id="release-indicators">Release Indicators:<a class="anchor" aria-label="anchor" href="#release-indicators"></a></h4>
+<table class="table"><colgroup><col width="45%"><col width="54%"></colgroup><thead><tr><th>Indicator</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>feat</td>
+<td>A new feature</td>
+</tr><tr><td>fix</td>
+<td>A bug fix</td>
+</tr><tr><td>docs</td>
+<td>Documentation only changes</td>
+</tr><tr><td>style</td>
+<td>Changes that do not affect the meaning of the code (i.e. white-space, formatting, missing semi-colons)</td>
+</tr><tr><td>refactor</td>
+<td>A code change that neither fixes a bug nor adds a feature</td>
+</tr><tr><td>perf</td>
+<td>A code change that improves performance</td>
+</tr><tr><td>test</td>
+<td>Adding missing or correcting existing tests</td>
+</tr><tr><td>chore</td>
+<td>changes to the build process or auxiliary tools and libraries such as documentation generation</td>
+</tr></tbody></table></div>
+<div class="section level4">
+<h4 id="rules-for-indicator-use">Rules for Indicator Use<a class="anchor" aria-label="anchor" href="#rules-for-indicator-use"></a></h4>
+<ul><li>If the body contains the text “BREAKING CHANGE” then MAJOR version is incremented.</li>
+<li>If the type contains feat, then MINOR version is incremented.</li>
+<li>If the type contains a fix, then PATCH version is incremented.</li>
+<li>If the type contains refactor/style/perf/doc/test/chore, then nothing is incremented and no release will be made.</li>
+</ul><p><strong>The above content is modeled after an article on <a href="https://medium.com/agoda-engineering/automating-versioning-and-releases-using-semantic-release-6ed355ede742" class="external-link">“Automating Versioning and Releases Using Semantic Release”</a> from Agoda Engineering.</strong></p>
+</div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="contributing-bugs">Contributing bugs<a class="anchor" aria-label="anchor" href="#contributing-bugs"></a></h2>
-<p>Found a bug? Tell us about it on our <a href="https://github.com/nmfs-ost/stockplotr/issues" class="external-link">Issues page</a>. Before you create an issue, please check that it has not already been resolved (i.e., is a “closed” issue).</p>
+<p>Found a bug? Tell us about it on our <a href="https://github.com/nmfs-ost/stockplotr/issues" class="external-link">Issues page</a>. Before you create an issue, please check that it has not already been resolved (i.e., is a “closed” issue) or documented in our <a href="https://nmfs-ost.github.io/stockplotr/articles/faqs.html">Frequently Asked Questions (FAQ) vignette</a>.</p>
 <p>If possible, please submit a reproducible example (<a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html" class="external-link">reprex</a>) to help us understand the problem better and, ideally, allow us to reproduce your issue.</p>
 </div>
 <div class="section level2">
@@ -120,7 +164,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

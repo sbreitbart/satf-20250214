@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">stockplotr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.12.0</span>
       </span>
     </div>
 
@@ -35,6 +35,13 @@
     Functions
   </a>
 </li>
+<li>
+  <a href="../stockplotr_cheatsheet.pdf">
+    <span class="fa fa-solid fa-key"></span>
+
+    Cheatsheet
+  </a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-file-contract fa-lg"></span>
@@ -44,10 +51,13 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/manual.html">Manual</a>
+      <a href="../articles/faqs.html">FAQs</a>
     </li>
     <li>
       <a href="../articles/how-caps-alttext-are-made.html">How captions and alternative text are generated</a>
+    </li>
+    <li>
+      <a href="../articles/convert_output_details.html">Standardizing Assessment Model Output</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -82,15 +92,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">reference_line</span><span class="op">(</span></span>
-<span>  <span class="va">plot</span>,</span>
-<span>  <span class="va">dat</span>,</span>
-<span>  era <span class="op">=</span> <span class="st">"time"</span>,</span>
-<span>  <span class="va">label_name</span>,</span>
-<span>  <span class="va">reference</span>,</span>
-<span>  relative <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  scale_amount <span class="op">=</span> <span class="fl">1</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">reference_line</span><span class="op">(</span><span class="va">plot</span>, <span class="va">dat</span>, <span class="va">label_name</span>, <span class="va">reference</span>, scale_amount <span class="op">=</span> <span class="fl">1</span>, lbs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -105,37 +107,31 @@
 <dd><p>standard data frame where reference point should be extracted</p></dd>
 
 
-<dt id="arg-era">era<a class="anchor" aria-label="anchor" href="#arg-era"></a></dt>
-<dd><p>a string naming the era of data such as historical ("early"), current ("time"), or
-projected ("fore") data if filtering should occur. Default is set to "time" which is
-the current time. To plot all data, set era to NULL.</p></dd>
-
-
 <dt id="arg-label-name">label_name<a class="anchor" aria-label="anchor" href="#arg-label-name"></a></dt>
 <dd><p>string of the name of the quantity that users want to
 extract the reference point from</p></dd>
 
 
 <dt id="arg-reference">reference<a class="anchor" aria-label="anchor" href="#arg-reference"></a></dt>
-<dd><p>string. name of the reference point such as "msy",
-"unfished", or "target"</p></dd>
-
-
-<dt id="arg-relative">relative<a class="anchor" aria-label="anchor" href="#arg-relative"></a></dt>
-<dd><p>A logical value specifying if the resulting figures should
-be relative spawning biomass. The default is `FALSE`. `ref_line` indicates
-which reference point to use.</p></dd>
+<dd><p>string of the reference point</p>
+<p>Options: Including, but not limited to: "msy", "unfished", "target"</p></dd>
 
 
 <dt id="arg-scale-amount">scale_amount<a class="anchor" aria-label="anchor" href="#arg-scale-amount"></a></dt>
-<dd><p>A number describing how much to scale down the quantities
-shown on the y axis. For example, scale_amount = 100 would scale down a value
-from 500,000 –&gt; 5,000. This scale will be reflected in the y axis label.</p></dd>
+<dd><p>A number to scale the y-axis values.</p>
+<p>Default: 1</p></dd>
+
+
+<dt id="arg-lbs">lbs<a class="anchor" aria-label="anchor" href="#arg-lbs"></a></dt>
+<dd><p>A logical value indicating whether to convert the y-axis values from
+kilograms to pounds. The default units match the default in the
+unit_label argument - 'mt'.</p>
+<p>Default: `FALSE`</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a ggplot2 geom_hline object for a reference point that can be added
+    <p>A ggplot2 geom_hline object for a reference point that can be added
 to a plot</p>
     </div>
 
@@ -158,7 +154,7 @@ to a plot</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>
